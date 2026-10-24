@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 from datetime import datetime
-
+from zoneinfo import ZoneInfo
 import streamlit as st
 
 # ---------------- CONFIGURAÇÃO ----------------
@@ -209,7 +209,7 @@ with aba3:
     if registrar:
         nome_funcionario = funcionario.strip()
         if nome_funcionario:
-            agora = datetime.now().astimezone()
+            agora = datetime.now(ZoneInfo("America/Sao_Paulo"))
             registro = {
                 "Funcionário": nome_funcionario,
                 "Ação": acao,
